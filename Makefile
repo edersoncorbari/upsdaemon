@@ -26,11 +26,11 @@
 # THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-CC=/usr/bin/cc
-SBINDIR=${PREFIX}/sbin
-MANDIR=${PREFIX}/man/man8
-SCRIPTDIR=${PREFIX}/libexec/upsdaemon
-STARTUP=${PREFIX}/scripts/upsdaemon
+CC=             /usr/bin/cc
+SBINDIR=        ${PREFIX}/sbin
+MANDIR=         ${PREFIX}/man/man8
+SCRIPTDIR=      ${PREFIX}/libexec/upsdaemon
+STARTUP=        ${PREFIX}/scripts/upsdaemon
 
 all:    ./src/upsdaemon.c
 	${CC} -Wall -DNDEBUG -g -O3 -o ./upsdaemon ./src/upsdaemon.c

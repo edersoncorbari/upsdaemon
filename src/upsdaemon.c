@@ -38,18 +38,14 @@
 #define PROG        "UpsDaemon"
 #define VERSION     "1.1"
 
-#ifndef PLATFORM
-#define PLARFORM    "Unix"
-#endif
-
 #define WAIT        5*60
 #define PORT        "/dev/cuad0"
 #define PID         "/var/run/upsdaemon.pid"
 
-#define SH_BATTERY	"/usr/local/libexec/upsdaemon/upsdaemon-alerts -battery"
-#define SH_DOWN		"/usr/local/libexec/upsdaemon/upsdaemon-alerts -down"
-#define SH_FAILED	"/usr/local/libexec/upsdaemon/upsdaemon-alerts -failed"
-#define SH_RECOVERY	"/usr/local/libexec/upsdaemon/upsdaemon-alerts -recovery"
+#define SH_BATTERY  "/usr/local/libexec/upsdaemon/upsdaemon-alerts -battery"
+#define SH_DOWN	    "/usr/local/libexec/upsdaemon/upsdaemon-alerts -down"
+#define SH_FAILED   "/usr/local/libexec/upsdaemon/upsdaemon-alerts -failed"
+#define SH_RECOVERY "/usr/local/libexec/upsdaemon/upsdaemon-alerts -recovery"
 
 int makepid(char *s);
 static void runcommand();
@@ -157,7 +153,7 @@ int main(int argc, char **argv)
 				pfail = 1;
 			}
 			
-            /* Time (wait - 5) minutes defined */			
+                        /* Time (wait - 5) minutes defined */			
 			if(pfcount == WAIT) {
 				syslog(LOG_ALERT, "Alert: Failed down server. %s %s", PROG, VERSION);
 				
