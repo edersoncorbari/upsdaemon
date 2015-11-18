@@ -119,7 +119,6 @@ int main(int argc, char **argv)
 		ioctl(fd, TIOCMGET, &lstatus);
                
 		if(!(lstatus & TIOCM_CAR)) {
-			
 			++blcount;
 			if(blcount == 6) {
 				
@@ -130,7 +129,6 @@ int main(int argc, char **argv)
 			ioctl(fd, TIOCMGET, &lstatus);
 			
 			if(!(lstatus & TIOCM_CTS)) {
-				
 				ioctl(fd, TIOCMBIC, &dtr_bit);
 				ioctl(fd, TIOCMBIS, &dtr_bit);
 				ioctl(fd, TIOCMBIS, &rts_bit);
@@ -145,7 +143,7 @@ int main(int argc, char **argv)
 			++pfcount;
 			prcount = 0;
 			blcount = 0;
-			if(pfcount == 3) {				
+			if(pfcount == 3) {
 				syslog(LOG_WARNING, "Alert: Failed in the communication with the Ups. %s %s", PROG, VERSION);
 				
 				/* Run failed communication Ups */
@@ -168,11 +166,9 @@ int main(int argc, char **argv)
 			}
 		}
 		else if(pfail == 1) {
-			
 			++prcount;
 			pfcount = 0;
 			if(prcount == 3) {
-				
 				/* Run recovery energy */				
 				runcommand(recovery);
 				
