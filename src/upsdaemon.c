@@ -42,8 +42,8 @@
 #define PLARFORM    "Unix"
 #endif
 
-#define WAIT		5*60
-#define PORT		"/dev/cuad0"
+#define WAIT        5*60
+#define PORT        "/dev/cuad0"
 #define PID         "/var/run/upsdaemon.pid"
 
 #define SH_BATTERY	"/usr/local/libexec/upsdaemon/upsdaemon-alerts -battery"
@@ -56,25 +56,24 @@ static void runcommand();
 
 int main(int argc, char **argv)
 {
-    volatile register int fd asm("eax");
-	fd = 0;
+        volatile register int fd asm("eax");
+        fd = 0;
 
-    int lstatus = 0;
+        int lstatus = 0;	
+        int rts_bit = TIOCM_RTS;
+        int dtr_bit = TIOCM_DTR;
+        int pfail = 0;
 	
-	int rts_bit = TIOCM_RTS;
-	int dtr_bit = TIOCM_DTR;
-	int pfail = 0;
+        volatile register int pfcount asm("eax");
+        volatile register int prcount asm("eax");
+        volatile register int blcount asm("eax");
+        pfcount = 0; prcount = 0; blcount = 0;
 	
-    volatile register int pfcount asm("eax");
-    volatile register int prcount asm("eax");
-    volatile register int blcount asm("eax");
-	pfcount = 0; prcount = 0; blcount = 0;
-	
-	char *port = PORT;
-	char *down      = SH_DOWN;
-    char *battery   = SH_BATTERY;
-	char *failed    = SH_FAILED;
-	char *recovery  = SH_RECOVERY;
+        char *port = PORT;
+        char *down      = SH_DOWN;
+        char *battery   = SH_BATTERY;
+        char *failed    = SH_FAILED;
+        char *recovery  = SH_RECOVERY;
 
 	if(argc > 2) {
 		errx(EXIT_FAILURE, "Usage: upsdaemon <port serial open>: %s\n", strerror(errno));
