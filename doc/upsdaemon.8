@@ -1,0 +1,81 @@
+.Dd June 18, 2006
+.Dt UPSDAEMON 8
+.Os FreeBSD
+.Sh NAME
+.Nm upsdaemon
+.Nd Simple Program UPS for Unix
+.Sh SYNOPSIS
+.Nm upsdaemon 
+.Pa [device]
+.Sh DESCRIPTION
+.Pp
+The
+.Nm
+is a simple program to monitor os (UPS) series APC-Pro.
+When the power fail, the UpsDaemon it effects shutdown the system.
+.Pp
+To use the upsdaemon you must posses the qualified serial,
+device in kernel (sio).
+.Pp
+The device is assumed to be /dev/cuad0 by default.
+.Pp
+.Nm UpsDaemon:
+The program monitors the serial port, keeys
+.Ar DTR
+(Data Terminal Ready) raised and  
+.Ar RTS 
+(Request To Send) lowered.
+When the upsdaemon sees the
+.Ar RNG
+high, runs the upsdaemon-alerts
+(powerfail warning) and reports failure to syslog.
+If the power failure continued for 5 minutes (defined), the upsdaemon runs the 
+upsdaemon-alerts (down), reports to syslog and makes the UPS to sleep by
+.Ar RTS.
+The power recovered within 5 minutes, the upsdaemon runs the 
+upsdaemon-alerts (recovery) and continues to monitor the serial 
+port for another powerfilure. In case the batter low is observed, 
+the upsdaemon runs the upsdaemon-alerts (emergency shutdown now) immediately, 
+reports to syslog and makes the UPS to sleep.
+.Sh FILES
+.Pa /usr/local/libexec/upsdaemon/upsdaemon-alerts [options]
+.Bl -tag -width "-f conffile"
+.It Fl battery
+Power failure warning Shell:
+A shell-script to inform users the power goes out and the system will be down soon.
+It generates log in:
+.Pa (/var/log/upsdaemon-alerts.log)
+.It Fl down
+Shutdown Shell:
+A shell-script to shutdown the system cleanly. Its generates log in:
+.Pa (/var/log/upsdaemon-alerts.log)
+.It Fl failed
+Emergency shutdown Shellt: A shell-script to execute emergency halt for battery power failing.
+Its generates log in:
+.Pa (/var/log/upsdaemon-alerts.log)
+.It Fl recovery
+Power recovery Shell: A shell-script to inform users the power has been restored and system 
+shutdown was canceled. Its generates log in:
+.Pa (/var/log/upsdaemon-alerts.log)
+.Pp 
+Starting upsdaemon:
+.Pa /usr/local/etc/rc.d/upsdaemon
+.Sh EXAMPLE
+.Pp
+The UpsDaemon is connected to the serial  port1 and  default
+value /dev/cuad0 is used.
+.Pp
+  $ upsdaemon /dev/cuad0
+.Pp
+The upsdaemon port is specified to be the serial port2
+/dev/cuad1 using command argument.
+.Pp
+  $ upsdaemon /dev/cuad1
+.Pp
+.Sh OTHER INFO
+.Pp
+Webpage for UpsDaemon is at http://www.ederbs.org/projects/upsdaemon/
+.Sh SEE ALSO
+.Xr upsdaemon(8)
+.Sh AUTHORS
+.An Ederson de Moura <ederbs@ederbs.org>
