@@ -14,9 +14,7 @@
       	                |I |  |   
                         |X | /    
                         |==|/     
-      	                `""`   
-        https://www.gsp.com/cgi-bin/man.cgi?section=8&topic=upsdaemon
-
+      	                `""`
 </pre>
 
 More information abou this program:
