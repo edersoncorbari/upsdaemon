@@ -1,10 +1,9 @@
-
               Simple Program UPS for Unix (V.1.0) 
 
                        June 17, 2006
 
                      ..:: Readme ::..
-
+<pre>
                           /--/|   
        	                 /  / |   
       	                /__/  |   
@@ -15,8 +14,8 @@
                         |X | /    
                         |==|/     
       	                `""`   
-
-        http://www.ederbs.org/projects/upsdaemon/
+</pre>
+        https://www.gsp.com/cgi-bin/man.cgi?section=8&topic=upsdaemon
 
 
 UpsDaemon:
