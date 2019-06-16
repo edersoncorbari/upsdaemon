@@ -58,6 +58,4 @@ Builting:
        - make deinstall
 
 
-Ederson de Moura - ederbsd@ederbs.org
-
-~:)
+Ederson de Moura Corbari - <ecorbari at protonmail.com>
