@@ -1,9 +1,10 @@
+<pre>
               Simple Program UPS for Unix (V.1.0) 
 
                        June 17, 2006
 
                      ..:: Readme ::..
-<pre>
+                     
                           /--/|   
        	                 /  / |   
       	                /__/  |   
@@ -14,9 +15,14 @@
                         |X | /    
                         |==|/     
       	                `""`   
-</pre>
         https://www.gsp.com/cgi-bin/man.cgi?section=8&topic=upsdaemon
 
+</pre>
+
+More information abou this program:
+
+ * [https://www.gsp.com/cgi-bin/man.cgi?section=8&topic=upsdaemon](https://www.gsp.com/cgi-bin/man.cgi?section=8&topic=upsdaemon)
+ * [https://www.freebsd.org/cgi/ports.cgi?query=upsdaemon&stype=all](https://www.freebsd.org/cgi/ports.cgi?query=upsdaemon&stype=all)
 
 UpsDaemon:
 
@@ -28,7 +34,7 @@ Disclaimer:
    If it will be BSDs system I recommend that it compiles UpsDaemon 
    for ports.
 
-    Ports In the FreeBSD:
+    Ports in the FreeBSD:
 
        - cd /usr/ports/sysutils/upsdaemon
        - make install clean 
