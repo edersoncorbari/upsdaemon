@@ -52,8 +52,7 @@ static void runcommand();
 
 int main(int argc, char **argv)
 {
-        volatile register int fd asm("eax");
-        fd = 0;
+        int fd = 0;
 
         int lstatus = 0;	
         int rts_bit = TIOCM_RTS;
