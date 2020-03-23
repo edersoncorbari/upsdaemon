@@ -33,8 +33,8 @@ SCRIPTDIR=      ${PREFIX}/libexec/upsdaemon
 STARTUP=        ${PREFIX}/scripts/upsdaemon
 
 all:    ./src/upsdaemon.c
-	${CC} -Wall -DNDEBUG -g -O3 -o ./upsdaemon ./src/upsdaemon.c
-
+	${CC} ${CFLAGS} -o ./upsdaemon ./src/upsdaemon.c
+	
 install:
 	${BSD_INSTALL_PROGRAM} ./upsdaemon $(DESTDIR)${SBINDIR}
 	${BSD_INSTALL_MAN} ./doc/upsdaemon.8 $(DESTDIR)${MANDIR}
