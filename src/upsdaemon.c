@@ -60,11 +60,10 @@ int main(int argc, char **argv)
         int dtr_bit = TIOCM_DTR;
         int pfail = 0;
 	
-        volatile register int pfcount asm("eax");
-        volatile register int prcount asm("eax");
-        volatile register int blcount asm("eax");
-        pfcount = 0; prcount = 0; blcount = 0;
-	
+        int pfcount = 0;
+        int prcount = 0;
+        int blcount = 0;
+        
         char *port = PORT;
         char *down      = SH_DOWN;
         char *battery   = SH_BATTERY;
