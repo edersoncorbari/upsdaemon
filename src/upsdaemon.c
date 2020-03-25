@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1995-2015 Ederson de Moura <ederbsd@gmail.com>
+ * Copyright (c) 1995-2020 Ederson de Moura Corbari - <ecorbari@protonmail.com>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
